@@ -3,7 +3,7 @@ name: Briefcase Build
 on:
   push:
     branches:
-      - master
+      - k-aito-patch-1
     tags:
       - "v[0-9].*"
 
