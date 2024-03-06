@@ -88,19 +88,31 @@ class Srtranslator(toga.App):
         )
 
     async def translate_async(self, widget):
+        print("1")
         filepath = self.widgets["filepath"].value
+        print("2")
         if not filepath or not os.path.exists(filepath):
+            print("3")
             return
 
+        print("4")
         self.set_loading(True)
-
+        print("5")
+        
         try:
+            print("6")
             loop = asyncio.get_event_loop()
+            print("7")
             await loop.run_in_executor(None, self.translate)
+            print("8")
         except:
+            print("9")
             traceback.print_exc()
+            print("10")
 
+        print("11")
         self.set_loading(False)
+        print("12")
 
     def set_loading(self, loading):
         for widget in self.widgets:
