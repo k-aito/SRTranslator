@@ -159,4 +159,15 @@ class Srtranslator(toga.App):
 
 def main():
     app = Srtranslator()
+
+    builtins.print = lambda *args, **kwargs: xprint(*args, **kwargs)
+
+    def xprint(*args, **kwargs):
+        _print(*args, **kwargs)
+        for arg in args:
+            try:
+                app.widgets["terminal"].text += arg + "\n"
+            except:
+                pass
+
     return app
